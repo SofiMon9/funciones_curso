@@ -12,3 +12,19 @@ String leerTexto(String mensaje) {
     }
   }
 }
+
+int leerEntero(String mensaje, int minimo) {
+  while (true) {
+    stdout.write(mensaje);
+    String entrada = (stdin.readLineSync() ?? '').trim();
+    int? numero = int.tryParse(entrada);
+
+    if (numero == null) {
+      print('Error: debe escribir un número entero.');
+    } else if (numero < minimo) {
+      print('Error: el número debe ser mayor o igual a $minimo.');
+    } else {
+      return numero;
+    }
+  }
+}
