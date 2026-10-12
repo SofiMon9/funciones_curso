@@ -1,4 +1,5 @@
 import 'curso.dart';
+import 'validaciones.dart';
 
 const int cupoMinimo = 1;
 
@@ -11,4 +12,22 @@ Curso? buscarPorCodigo(String codigo) {
     }
   }
   return null;
+}
+
+void registrarCurso() {
+  print('\n--- REGISTRAR CURSO ---');
+  String codigo = leerTexto('Código del curso: ').toUpperCase();
+
+  if (buscarPorCodigo(codigo) != null) {
+    print('Error: ya existe un curso con el código $codigo.');
+    return;
+  }
+
+  String nombre = leerTexto('Nombre del curso: ');
+  String docente = leerTexto('Docente: ');
+  int cupo = leerEntero('Cupo máximo de estudiantes: ', cupoMinimo);
+
+  Curso nuevo = Curso(codigo, nombre, docente, cupo);
+  cursos.add(nuevo);
+  print('Curso registrado correctamente.');
 }
