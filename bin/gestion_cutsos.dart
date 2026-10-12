@@ -31,3 +31,16 @@ void registrarCurso() {
   cursos.add(nuevo);
   print('Curso registrado correctamente.');
 }
+
+void listarCursos() {
+  print('\n--- LISTA DE CURSOS ---');
+
+  if (cursos.isEmpty) {
+    print('No hay cursos registrados.');
+    return;
+  }
+
+  for (Curso curso in cursos) {
+    curso.mostrarInformacion();
+  }
+}
