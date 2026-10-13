@@ -1,4 +1,5 @@
 import 'validaciones.dart';
+import 'gestion_cursos.dart';
 
 const String titulo = 'SISTEMA DE GESTIÓN DE CURSOS Y ESTUDIANTES';
 
@@ -24,6 +25,12 @@ void main() {
     int opcion = leerEntero('Seleccione una opción: ', 0);
 
     switch (opcion) {
+      case 1:
+      registrarCurso();
+      break;
+      case 2:
+      listarCursos();
+      break;
       case 0:
         print('Gracias por usar el sistema. ¡Hasta pronto!');
         continuar = false;
