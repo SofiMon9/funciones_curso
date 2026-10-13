@@ -4,6 +4,7 @@ import 'validaciones.dart';
 const int cupoMinimo = 1;
 
 List<Curso> cursos = [];
+Set<String> codigosUsados = {};
 
 Curso? buscarPorCodigo(String codigo) {
   for (Curso curso in cursos) {
@@ -18,7 +19,7 @@ void registrarCurso() {
   print('\n--- REGISTRAR CURSO ---');
   String codigo = leerTexto('Código del curso: ').toUpperCase();
 
-  if (buscarPorCodigo(codigo) != null) {
+  if (codigosUsados.contains(codigo)) {
     print('Error: ya existe un curso con el código $codigo.');
     return;
   }
@@ -29,9 +30,9 @@ void registrarCurso() {
 
   Curso nuevo = Curso(codigo, nombre, docente, cupo);
   cursos.add(nuevo);
+  codigosUsados.add(codigo);
   print('Curso registrado correctamente.');
 }
-
 void listarCursos() {
   print('\n--- LISTA DE CURSOS ---');
 
