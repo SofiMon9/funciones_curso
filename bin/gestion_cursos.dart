@@ -99,3 +99,25 @@ void modificarCurso() {
       print('Opción no válida.');
   }
 }
+
+void eliminarCurso() {
+  print('\n--- ELIMINAR CURSO ---');
+  String codigo = leerTexto('Código del curso a eliminar: ').toUpperCase();
+  Curso? curso = buscarPorCodigo(codigo);
+
+  if (curso == null) {
+    print('Error: no existe un curso con el código $codigo.');
+    return;
+  }
+
+  String confirmacion =
+      leerTexto('¿Seguro que desea eliminar "${curso.nombre}"? (s/n): ');
+
+  if (confirmacion.toLowerCase() == 's') {
+    cursos.remove(curso);
+    codigosUsados.remove(codigo);
+    print('Curso eliminado.');
+  } else {
+    print('Operación cancelada.');
+  }
+}

@@ -37,6 +37,9 @@ void main() {
       case 4:
         modificarCurso();
         break;
+      case 5:
+        eliminarCurso();
+        break;
       case 0:
         print('Gracias por usar el sistema. ¡Hasta pronto!');
         continuar = false;
