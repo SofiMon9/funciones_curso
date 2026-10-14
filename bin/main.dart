@@ -40,6 +40,12 @@ void main() {
       case 5:
         eliminarCurso();
         break;
+      case 6:
+        mostrarResumen();
+        break;
+      case 7:
+        inscribirEstudiante();
+        break;
       case 0:
         print('Gracias por usar el sistema. ¡Hasta pronto!');
         continuar = false;

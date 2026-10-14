@@ -121,3 +121,60 @@ void eliminarCurso() {
     print('Operación cancelada.');
   }
 }
+
+void inscribirEstudiante() {
+  print('\n--- INSCRIBIR ESTUDIANTE ---');
+  String codigo = leerTexto('Código del curso: ').toUpperCase();
+  Curso? curso = buscarPorCodigo(codigo);
+
+  if (curso == null) {
+    print('Error: no existe un curso con el código $codigo.');
+    return;
+  }
+
+  if (!curso.hayCupo()) {
+    print('Error: el curso ya no tiene cupos disponibles.');
+    return;
+  }
+
+  String nombreEstudiante = leerTexto('Nombre del estudiante: ');
+
+  if (curso.inscribirEstudiante(nombreEstudiante)) {
+    print('Estudiante inscrito. Cupos libres: ${curso.cuposDisponibles()}');
+  } else {
+    print('Error: ese estudiante ya está inscrito en el curso.');
+  }
+}
+
+void mostrarResumen() {
+  print('\n--- RESUMEN DEL SISTEMA ---');
+
+  if (cursos.isEmpty) {
+    print('No hay cursos registrados.');
+    return;
+  }
+
+  int totalEstudiantes = 0;
+  int cursosLlenos = 0;
+  Map<String, int> cursosPorDocente = {};
+
+  for (Curso curso in cursos) {
+    totalEstudiantes += curso.estudiantes.length;
+
+    if (!curso.hayCupo()) {
+      cursosLlenos++;
+    }
+
+    cursosPorDocente[curso.docente] =
+        (cursosPorDocente[curso.docente] ?? 0) + 1;
+  }
+
+  print('Total de cursos: ${cursos.length}');
+  print('Total de estudiantes inscritos: $totalEstudiantes');
+  print('Cursos con cupo lleno: $cursosLlenos');
+  print('Cursos por docente:');
+
+  for (MapEntry<String, int> entrada in cursosPorDocente.entries) {
+    print('  - ${entrada.key}: ${entrada.value}');
+  }
+}
