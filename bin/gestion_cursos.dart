@@ -45,3 +45,20 @@ void listarCursos() {
     curso.mostrarInformacion();
   }
 }
+
+void buscarCurso() {
+  print('\n--- BUSCAR CURSO ---');
+  String texto = leerTexto('Escriba el nombre a buscar: ').toLowerCase();
+  bool encontrado = false;
+
+  for (Curso curso in cursos) {
+    if (curso.nombre.toLowerCase().contains(texto)) {
+      curso.mostrarInformacion();
+      encontrado = true;
+    }
+  }
+
+  if (!encontrado) {
+    print('No se encontraron cursos con ese nombre.');
+  }
+}
