@@ -62,3 +62,40 @@ void buscarCurso() {
     print('No se encontraron cursos con ese nombre.');
   }
 }
+
+void modificarCurso() {
+  print('\n--- MODIFICAR CURSO ---');
+  String codigo = leerTexto('Código del curso a modificar: ').toUpperCase();
+  Curso? curso = buscarPorCodigo(codigo);
+
+  if (curso == null) {
+    print('Error: no existe un curso con el código $codigo.');
+    return;
+  }
+
+  print('1. Nombre');
+  print('2. Docente');
+  print('3. Cupo máximo');
+  int opcion = leerEntero('¿Qué desea modificar? ', 1);
+
+  switch (opcion) {
+    case 1:
+      curso.nombre = leerTexto('Nuevo nombre: ');
+      print('Nombre actualizado.');
+      break;
+    case 2:
+      curso.docente = leerTexto('Nuevo docente: ');
+      print('Docente actualizado.');
+      break;
+    case 3:
+      int minimo = curso.estudiantes.length;
+      if (minimo < cupoMinimo) {
+        minimo = cupoMinimo;
+      }
+      curso.cupoMaximo = leerEntero('Nuevo cupo máximo: ', minimo);
+      print('Cupo actualizado.');
+      break;
+    default:
+      print('Opción no válida.');
+  }
+}

@@ -26,11 +26,17 @@ void main() {
 
     switch (opcion) {
       case 1:
-      registrarCurso();
-      break;
+        registrarCurso();
+        break;
       case 2:
-      listarCursos();
-      break;
+        listarCursos();
+        break;
+      case 3:
+        buscarCurso();
+        break;
+      case 4:
+        modificarCurso();
+        break;
       case 0:
         print('Gracias por usar el sistema. ¡Hasta pronto!');
         continuar = false;
@@ -40,3 +46,4 @@ void main() {
     }
   }
 }
+
