@@ -50,7 +50,7 @@ Todo el código está en la carpeta `bin/`:
  
 ### ¿Qué es una clase?
  
-Una clase es como un molde. Sirve para decir cómo va a ser algo y qué datos y acciones va a tener, pero todavía no es algo real. Por ejemplo, la clase `Curso` es el molde que dice que todo curso tiene un código, un nombre, un docente y un cupo.
+Una clase es como un molde, que sirve para decir cómo va a ser algo y qué datos y acciones va a tener, pero todavía no es algo real. Por ejemplo, la clase `Curso` es el molde que dice que todo curso tiene un código, un nombre, un docente y un cupo.
  
 ### ¿Qué es un objeto?
  
@@ -62,7 +62,7 @@ La clase es la idea o el plano; el objeto es la cosa ya construida. Con una sola
  
 ### ¿Qué es un atributo?
  
-Un atributo es una característica o dato que guarda un objeto. En mi clase, los atributos son `codigo`, `nombre`, `docente`, `cupoMaximo` y `estudiantes`.
+Un atributo es una característica o dato que guarda un objeto. En la clase, los atributos son `codigo`, `nombre`, `docente`, `cupoMaximo` y `estudiantes`.
  
 ### ¿Qué es un método?
  
@@ -70,7 +70,7 @@ Un método es una acción que sabe hacer un objeto. Es una función que vive den
  
 ### ¿Para qué sirve un constructor?
  
-El constructor es la parte de la clase que se ejecuta cuando se crea un objeto. Sirve para darle sus datos iniciales. En mi proyecto, el constructor `Curso(this.codigo, this.nombre, this.docente, this.cupoMaximo)` recibe los cuatro datos y los guarda en el objeto nuevo.
+El constructor es la parte de la clase que se ejecuta cuando se crea un objeto. Sirve para darle sus datos iniciales. En el proyecto, el constructor `Curso(this.codigo, this.nombre, this.docente, this.cupoMaximo)` recibe los cuatro datos y los guarda en el objeto nuevo.
  
 ### Aplicación en el proyecto
  
